@@ -3,16 +3,21 @@ const Container = ({ children }) => {
 }
 
 const Pane = ({ children }) => {
-  return <div className="flex-1">{children}</div>
+  return <div className={`${(props) => props.weight}`}>{children}</div>
 }
 
-const SplitScreen = ({ left: Left, right: Right }) => {
+const SplitScreen = ({
+  left: Left,
+  right: Right,
+  leftWeight = 1,
+  rightWeight = 1,
+}) => {
   return (
     <Container>
-      <Pane>
+      <Pane weight={leftWeight}>
         <Left />
       </Pane>
-      <Pane>
+      <Pane weight={rightWeight}>
         <Right />
       </Pane>
     </Container>
