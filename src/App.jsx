@@ -1,9 +1,15 @@
-function App() {
-  return (
-    <>
-      <h1>React App</h1>
-    </>
-  );
+import SplitScreen from "./SplitScreen"
+
+const LeftHandComponent = () => {
+  return <h1>Left Hand Component</h1>
 }
 
-export default App;
+const RightHandComponent = () => {
+  return <p>Right Hand Component</p>
+}
+
+function App() {
+  return <SplitScreen left={LeftHandComponent} right={RightHandComponent} />
+}
+
+export default App
